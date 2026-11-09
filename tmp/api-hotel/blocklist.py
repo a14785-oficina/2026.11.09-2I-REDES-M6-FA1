@@ -1,1 +1,0 @@
-BLOCKLIST = set() # A python set to store the JWT tokens that have been revoked or blacklisted.
