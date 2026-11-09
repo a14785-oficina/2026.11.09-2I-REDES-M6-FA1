@@ -1,0 +1,15 @@
+meta {
+  name: delete-task
+  type: http
+  seq: 10
+}
+
+delete {
+  url: http://127.0.0.1:5000/tarefas/1
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer COLOCAR_TOKEN_AQUI
+}

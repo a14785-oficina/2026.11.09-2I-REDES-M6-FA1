@@ -1,0 +1,15 @@
+meta {
+  name: list-tasks
+  type: http
+  seq: 7
+}
+
+get {
+  url: http://127.0.0.1:5000/tarefas
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer COLOCAR_TOKEN_AQUI
+}

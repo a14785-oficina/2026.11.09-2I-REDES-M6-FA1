@@ -1,0 +1,20 @@
+meta {
+  name: insert-hotel
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://127.0.0.1:5000/hotels/oficina
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Hotel OFICINA",
+    "stars": 4.6,
+    "daily": 201.99,
+    "city": "Caldas da Saúde"
+  }
+}

@@ -1,0 +1,23 @@
+meta {
+  name: insert-task
+  type: http
+  seq: 6
+}
+
+post {
+  url: http://127.0.0.1:5000/tarefas
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer COLOCAR_TOKEN_AQUI
+}
+
+body:json {
+  {
+    "titulo": "Preparar apresentação",
+    "descricao": "Organizar os conteúdos.",
+    "estado": "Pendente"
+  }
+}

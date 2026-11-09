@@ -1,0 +1,19 @@
+meta {
+  name: insert-user-b
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://127.0.0.1:5000/registo
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "username": "alunoB",
+    "email": "b@exemplo.pt",
+    "password": "AlunoB123!"
+  }
+}
