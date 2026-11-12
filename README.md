@@ -1,8 +1,6 @@
-# API de Gestão de Tarefas — adaptação da API Hotel
+# API de Gestão de Tarefas
 
-Trabalho correspondente ao enunciado 2I-REDES-M6-FA1. Foi adaptado diretamente da estrutura do export api-hotel.7z fornecido, mantendo o estilo de desenvolvimento estudado nas aulas.
-
-## Executar
+## Como Executar
 
 Extrair para uma pasta nova. Esta revisão usa uma base nova e não migra bases de dados ou passwords de outra versão. O código está em models/user.py, models/task.py, resources/user.py e resources/task.py.
 
@@ -54,17 +52,3 @@ O token é colocado manualmente no cabeçalho de cada pedido, sem scripts ou var
 | POST | /logout | Extra já presente no original: revoga o token atual e devolve 200. |
 
 Todos os endpoints de tarefas exigem JWT. Titulo, descricao e estado são obrigatórios no POST e PUT. Null é rejeitado. Os estados permitidos são exatamente Pendente, Em curso e Concluída. O título não pode ser vazio. Enviar utilizador_id no JSON é rejeitado: a atribuição é feita pelo servidor. Estas escolhas de validação completam os detalhes não especificados pelo enunciado.
-
-## Estrutura e estilo
-
-Mantêm-se Flask, Flask-RESTful, reqparse nas classes, UserModel, UserRegister/UserLogin, os métodos find/save/update/delete, json(), SQLAlchemy e o arranque no bloco __main__. con_sql.py e blocklist.py são cópias exatas do export. TaskModel/Task/Tasks substituem os elementos HotelModel/Hotel/Hotels. Os nomes dos campos, tabelas e rotas seguem o enunciado em português.
-
-As permissões usam a conta carregada da base pelo ID do JWT. No GET da coleção, a consulta é filtrada. Nos métodos individuais, verificam-se existência, tipo e proprietário antes da operação. Não é suficiente renomear Hotel para Task sem estas verificações.
-
-## Limites herdados do exercício
-
-A comparação de passwords segue o hmac.compare_digest do original. As passwords ficam em texto simples na base e não aparecem nas respostas JSON: usa exclusivamente dados fictícios nesta base de aula. Não é a versão com hashing da revisão anterior.
-
-A chave JWT e o administrador são valores locais de demonstração. A blocklist é um set em memória, pelo que reiniciar apaga as revogações. A base SQL mantém os registos. create_all cria tabelas em falta, mas não migra esquemas existentes.
-
-Começa pelo guia markdown/INICIO.md. A comparação com o original e as alterações necessárias para cumprir o enunciado estão em markdown/COMPARACAO-ORIGINAL.md.
